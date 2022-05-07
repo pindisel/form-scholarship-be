@@ -25,7 +25,7 @@ module.exports = {
       unemployed: {
         type: Sequelize.BOOLEAN,
       },
-      self_employed: {
+      self_employment: {
         type: Sequelize.BOOLEAN,
       },
       employed: {

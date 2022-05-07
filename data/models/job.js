@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       unemployed: {
         type: DataTypes.BOOLEAN,
       },
-      self_employed: {
+      self_employment: {
         type: DataTypes.BOOLEAN,
       },
       employed: {
