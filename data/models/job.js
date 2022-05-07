@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Personal extends Model {
+  class Job extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,46 +11,44 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Personal.init(
+  Job.init(
     {
-      id_student: {
+      id_job: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      title: {
-        type: DataTypes.ENUM("mr", "mrs", "ms", "miss", "other"),
-      },
-      f_name: {
-        type: DataTypes.STRING,
-      },
-      l_name: {
-        type: DataTypes.STRING,
-      },
-      birth_place: {
-        type: DataTypes.STRING,
-      },
-      birth_date: {
-        type: DataTypes.DATE,
-      },
-      gender: {
-        type: DataTypes.ENUM("male", "female"),
-      },
-      country: {
-        type: DataTypes.STRING,
-      },
-      national_num: {
+      id_student: {
         type: DataTypes.INTEGER,
+        references: {
+          model: "Personals",
+          key: "id_student",
+        },
       },
-      passport_num: {
-        type: DataTypes.INTEGER,
+      unemployed: {
+        type: DataTypes.BOOLEAN,
       },
-      issue_date: {
+      self_employed: {
+        type: DataTypes.BOOLEAN,
+      },
+      employed: {
+        type: DataTypes.BOOLEAN,
+      },
+      position: {
+        type: DataTypes.STRING,
+      },
+      organization_name: {
+        type: DataTypes.STRING,
+      },
+      organization_address: {
+        type: DataTypes.STRING,
+      },
+      date: {
         type: DataTypes.DATE,
       },
-      expiry_date: {
-        type: DataTypes.DATE,
+      organization_type: {
+        type: DataTypes.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -63,8 +61,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Personal",
+      modelName: "Job",
     }
   );
-  return Personal;
+  return Job;
 };

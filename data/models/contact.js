@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Personal extends Model {
+  class Contact extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,46 +11,52 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Personal.init(
+  Contact.init(
     {
-      id_student: {
+      id_contact: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      title: {
-        type: DataTypes.ENUM("mr", "mrs", "ms", "miss", "other"),
+      id_student: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Personals",
+          key: "id_student",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
-      f_name: {
+      address1: {
         type: DataTypes.STRING,
       },
-      l_name: {
+      address2: {
         type: DataTypes.STRING,
       },
-      birth_place: {
+      city: {
         type: DataTypes.STRING,
       },
-      birth_date: {
-        type: DataTypes.DATE,
+      postal_code: {
+        type: DataTypes.INTEGER,
       },
-      gender: {
-        type: DataTypes.ENUM("male", "female"),
+      province: {
+        type: DataTypes.STRING,
       },
       country: {
         type: DataTypes.STRING,
       },
-      national_num: {
+      home_phone: {
         type: DataTypes.INTEGER,
       },
-      passport_num: {
+      mobile_phone: {
         type: DataTypes.INTEGER,
       },
-      issue_date: {
-        type: DataTypes.DATE,
+      primary_email: {
+        type: DataTypes.STRING,
       },
-      expiry_date: {
-        type: DataTypes.DATE,
+      alternate_email: {
+        type: DataTypes.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -63,8 +69,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Personal",
+      modelName: "Contact",
     }
   );
-  return Personal;
+  return Contact;
 };

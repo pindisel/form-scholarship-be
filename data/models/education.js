@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Personal extends Model {
+  class Education extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,45 +11,51 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Personal.init(
+  Education.init(
     {
-      id_student: {
+      id_education_bg: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      title: {
-        type: DataTypes.ENUM("mr", "mrs", "ms", "miss", "other"),
+      id_student: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Personals",
+          key: "id_student",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
-      f_name: {
+      undergrad_institution: {
         type: DataTypes.STRING,
       },
-      l_name: {
+      undergrad_province: {
         type: DataTypes.STRING,
       },
-      birth_place: {
+      undergrad_country: {
         type: DataTypes.STRING,
       },
-      birth_date: {
+      undergrad_language: {
+        type: DataTypes.STRING,
+      },
+      undergrad_date: {
         type: DataTypes.DATE,
       },
-      gender: {
-        type: DataTypes.ENUM("male", "female"),
-      },
-      country: {
+      master_institution: {
         type: DataTypes.STRING,
       },
-      national_num: {
-        type: DataTypes.INTEGER,
+      master_province: {
+        type: DataTypes.STRING,
       },
-      passport_num: {
-        type: DataTypes.INTEGER,
+      master_country: {
+        type: DataTypes.STRING,
       },
-      issue_date: {
-        type: DataTypes.DATE,
+      master_language: {
+        type: DataTypes.STRING,
       },
-      expiry_date: {
+      master_date: {
         type: DataTypes.DATE,
       },
       createdAt: {
@@ -63,8 +69,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Personal",
+      modelName: "Education",
     }
   );
-  return Personal;
+  return Education;
 };
