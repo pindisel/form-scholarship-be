@@ -48,7 +48,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
       },
       organization_type: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM(
+          "government/public",
+          "ngo/civil society",
+          "private"
+        ),
       },
       createdAt: {
         allowNull: false,

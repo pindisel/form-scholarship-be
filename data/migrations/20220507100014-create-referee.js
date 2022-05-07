@@ -36,6 +36,9 @@ module.exports = {
       position_ref1: {
         type: Sequelize.STRING,
       },
+      relationship_ref1: {
+        type: Sequelize.STRING,
+      },
       institution_ref1: {
         type: Sequelize.STRING,
       },
@@ -58,6 +61,9 @@ module.exports = {
         type: Sequelize.STRING,
       },
       position_ref2: {
+        type: Sequelize.STRING,
+      },
+      relationship_ref2: {
         type: Sequelize.STRING,
       },
       institution_ref2: {

@@ -40,6 +40,9 @@ module.exports = (sequelize, DataTypes) => {
       position_ref1: {
         type: DataTypes.STRING,
       },
+      relationship_ref1: {
+        type: DataTypes.STRING,
+      },
       institution_ref1: {
         type: DataTypes.STRING,
       },
@@ -62,6 +65,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       position_ref2: {
+        type: DataTypes.STRING,
+      },
+      relationship_ref2: {
         type: DataTypes.STRING,
       },
       institution_ref2: {
