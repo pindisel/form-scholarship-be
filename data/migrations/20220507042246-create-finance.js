@@ -8,14 +8,11 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable("Finance", {
+    await queryInterface.createTable("Finances", {
       id_finance: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
-      id_student: {
         type: Sequelize.INTEGER,
         references: {
           model: "Personals",
@@ -24,7 +21,7 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      type: {
+      finance_type: {
         type: Sequelize.ENUM("self", "master", "lpdp", "baznas"),
       },
       createdAt: {
@@ -45,6 +42,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable("Finance");
+    await queryInterface.dropTable("Finances");
   },
 };

@@ -16,15 +16,26 @@ const getPersonals = async () => {
 };
 
 const createPersonal = async (personal) => {
-  // console.log(personal);
   try {
-    let newPersonal = await personalModel.create(personal);
+    let newPersonal = await personalModel.create(personal).catch((err) => {
+      const error = new Error("Error creating personal");
+      error.status = 400;
+      throw error;
+    });
+    // console.log(newPersonal);
+    console.log("createPersonal berhasil");
     return {
       success: true,
+      status: 201,
       data: newPersonal,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newPersonal)));
+    console.log("createPersonal gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

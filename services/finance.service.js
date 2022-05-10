@@ -18,13 +18,24 @@ const getFinances = async () => {
 const createFinance = async (finance) => {
   // console.log(finance);
   try {
-    let newFinance = await financeModel.create(finance);
+    let newFinance = await financeModel.create(finance).catch((err) => {
+      const error = new Error("Error creating finance");
+      error.status = 400;
+      throw error;
+    });
+    console.log("createFinance berhasil");
     return {
       success: true,
+      status: 201,
       data: newFinance,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newFinance)));
+    console.log("createFinance gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

@@ -12,7 +12,7 @@ const getFinances = async (req, res) => {
 const createFinance = async (req, res) => {
   try {
     let newFinance = await financeService.createFinance(req.body);
-    res.send(newFinance);
+    res.send(newFinance).status(newFinance.status);
   } catch (err) {
     res.send(err);
   }

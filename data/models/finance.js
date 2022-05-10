@@ -18,9 +18,6 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
-      },
-      id_student: {
-        type: DataTypes.INTEGER,
         references: {
           model: "Personals",
           key: "id_student",
@@ -28,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      type: {
+      finance_type: {
         type: DataTypes.ENUM("self", "master", "lpdp", "baznas"),
       },
       createdAt: {
@@ -43,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Finance",
+      tableName: "Finances",
     }
   );
   return Finance;

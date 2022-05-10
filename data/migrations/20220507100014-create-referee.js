@@ -14,9 +14,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      id_student: {
-        type: Sequelize.INTEGER,
         references: {
           model: "Personals",
           key: "id_student",

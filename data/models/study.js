@@ -18,9 +18,6 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
-      },
-      id_student: {
-        type: DataTypes.INTEGER,
         references: {
           model: "Personals",
           key: "id_student",
@@ -46,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Study",
+      tableName: "Studies",
     }
   );
   return Study;

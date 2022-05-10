@@ -8,8 +8,8 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable("Languages", {
-      id_language: {
+    await queryInterface.createTable("Documents", {
+      id_document: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -21,25 +21,31 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      english_proficiency: {
+      id_passport: {
         type: Sequelize.STRING,
       },
-      arabic_proficiency: {
+      edu_certificate: {
         type: Sequelize.STRING,
       },
-      other_language: {
+      academic_transcript: {
         type: Sequelize.STRING,
       },
-      other_proficiency: {
+      motivation_letter: {
         type: Sequelize.STRING,
       },
-      test_name: {
+      language_test: {
         type: Sequelize.STRING,
       },
-      test_date: {
-        type: Sequelize.DATE,
+      arabic_certificate: {
+        type: Sequelize.STRING,
       },
-      test_score: {
+      curriculum_vitae: {
+        type: Sequelize.STRING,
+      },
+      research_proposal: {
+        type: Sequelize.STRING,
+      },
+      admission_receipt: {
         type: Sequelize.STRING,
       },
       createdAt: {
@@ -60,6 +66,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable("Languages");
+    await queryInterface.dropTable("Documents");
   },
 };

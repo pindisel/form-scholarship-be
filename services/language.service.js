@@ -18,13 +18,24 @@ const getLanguages = async () => {
 const createLanguage = async (language) => {
   // console.log(language);
   try {
-    let newLanguage = await languageModel.create(language);
+    let newLanguage = await languageModel.create(language).catch((err) => {
+      const error = new Error("Error creating language");
+      error.status = 400;
+      throw error;
+    });
+    console.log("createLanguage berhasil");
     return {
       success: true,
+      status: 201,
       data: newLanguage,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newLanguage)));
+    console.log("createLanguage gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

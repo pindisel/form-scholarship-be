@@ -5,6 +5,7 @@ module.exports = {
     database: "form_be",
     host: "127.0.0.1",
     dialect: "postgres",
+    logging: false,
   },
   test: {
     username: "root",

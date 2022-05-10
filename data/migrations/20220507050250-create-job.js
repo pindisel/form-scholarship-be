@@ -8,19 +8,18 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable("Job", {
+    await queryInterface.createTable("Jobs", {
       id_job: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      id_student: {
-        type: Sequelize.INTEGER,
         references: {
           model: "Personals",
           key: "id_student",
         },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       unemployed: {
         type: Sequelize.BOOLEAN,
@@ -68,6 +67,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable("Job");
+    await queryInterface.dropTable("Jobs");
   },
 };

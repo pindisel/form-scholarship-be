@@ -18,13 +18,25 @@ const getEducations = async () => {
 const createEducation = async (education) => {
   // console.log(education);
   try {
-    let newEducation = await educationModel.create(education);
+    let newEducation = await educationModel.create(education).catch((err) => {
+      console.log(err);
+      const error = new Error("Error creating education");
+      error.status = 400;
+      throw error;
+    });
+    console.log("createEducation berhasil");
     return {
       success: true,
+      status: 201,
       data: newEducation,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newEducation)));
+    console.log("createEducation gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

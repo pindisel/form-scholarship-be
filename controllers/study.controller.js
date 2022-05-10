@@ -11,8 +11,8 @@ const getStudies = async (req, res) => {
 
 const createStudy = async (req, res) => {
   try {
-    let newStudy = await studyService.createFinance(req.body);
-    res.send(newStudy);
+    let newStudy = await studyService.createStudy(req.body);
+    res.send(newStudy).status(newStudy.status);
   } catch (err) {
     res.send(err);
   }

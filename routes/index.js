@@ -8,6 +8,7 @@ const educationRoute = require("./education.routes");
 const languageRoute = require("./language.routes");
 const jobRoute = require("./job.routes");
 const refereeRoute = require("./referee.routes");
+const documentRoute = require("./document.routes");
 
 const router = express.Router();
 
@@ -43,6 +44,10 @@ const defaultRoutes = [
   {
     path: "/referee",
     route: refereeRoute,
+  },
+  {
+    path: "/document",
+    route: documentRoute,
   },
 ];
 

@@ -12,7 +12,7 @@ const getContacts = async (req, res) => {
 const createContact = async (req, res) => {
   try {
     let newContact = await contactServices.createContact(req.body);
-    res.send(newContact);
+    res.send(newContact).status(newContact.status);
   } catch (err) {
     res.send(err);
   }

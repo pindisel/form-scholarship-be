@@ -16,15 +16,25 @@ const getContacts = async () => {
 };
 
 const createContact = async (contact) => {
-  // console.log(contact);
   try {
-    let newContact = await contactModel.create(contact);
+    let newContact = await contactModel.create(contact).catch((err) => {
+      const error = new Error("Error creating contact");
+      error.status = 400;
+      throw error;
+    });
+    console.log("createContact berhasil");
     return {
       success: true,
+      status: 201,
       data: newContact,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newContact)));
+    console.log("createContact gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

@@ -12,7 +12,7 @@ const getLanguages = async (req, res) => {
 const createLanguage = async (req, res) => {
   try {
     let newLanguage = await languageService.createLanguage(req.body);
-    res.send(newLanguage);
+    res.send(newLanguage).status(newLanguage.status);
   } catch (err) {
     res.send(err);
   }

@@ -18,13 +18,24 @@ const getJobs = async () => {
 const createJob = async (job) => {
   // console.log(job);
   try {
-    let newJob = await jobModel.create(job);
+    let newJob = await jobModel.create(job).catch((err) => {
+      const error = new Error("Error creating job");
+      error.status = 400;
+      throw error;
+    });
+    console.log("createJob berhasil");
     return {
       success: true,
+      status: 201,
       data: newJob,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newJob)));
+    console.log("createJob gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

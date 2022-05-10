@@ -16,15 +16,26 @@ const getStudies = async () => {
 };
 
 const createStudy = async (study) => {
-  // console.log(study);
   try {
-    let newStudy = await studyModel.create(study);
+    let newStudy = await studyModel.create(study).catch((err) => {
+      console.log(err);
+      const error = new Error("Error creating study");
+      error.status = 400;
+      throw error;
+    });
+    console.log("createStudy berhasil");
     return {
       success: true,
+      status: 201,
       data: newStudy,
     };
   } catch (err) {
-    throw new Error(JSON.parse(JSON.stringify(newStudy)));
+    console.log("createStudy gagal", err);
+    return {
+      success: false,
+      message: err.message,
+      status: err.status,
+    };
   }
 };
 

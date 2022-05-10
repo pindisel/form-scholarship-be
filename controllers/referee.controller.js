@@ -12,7 +12,7 @@ const getReferees = async (req, res) => {
 const createReferee = async (req, res) => {
   try {
     let newReferee = await refereeService.createReferee(req.body);
-    res.send(newReferee);
+    res.send(newReferee).status(newReferee.status);
   } catch (err) {
     res.send(err);
   }

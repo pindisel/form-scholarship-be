@@ -18,13 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
-      },
-      id_student: {
-        type: DataTypes.INTEGER,
         references: {
           model: "Personals",
           key: "id_student",
         },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       unemployed: {
         type: DataTypes.BOOLEAN,
@@ -66,6 +65,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Job",
+      tableName: "Jobs",
     }
   );
   return Job;

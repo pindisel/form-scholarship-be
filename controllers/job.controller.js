@@ -12,7 +12,7 @@ const getJobs = async (req, res) => {
 const createJob = async (req, res) => {
   try {
     let newJob = await jobService.createJob(req.body);
-    res.send(newJob);
+    res.send(newJob).status(newJob.status);
   } catch (err) {
     res.send(err);
   }

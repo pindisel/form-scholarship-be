@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Referee extends Model {
+  class Document extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Referee.init(
+  Document.init(
     {
-      id_referee: {
+      id_document: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -25,58 +25,31 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      title_ref1: {
-        type: DataTypes.ENUM("mr", "mrs", "ms", "miss", "other"),
-      },
-      f_name_ref1: {
+      id_passport: {
         type: DataTypes.STRING,
       },
-      l_name_ref1: {
+      edu_certificate: {
         type: DataTypes.STRING,
       },
-      position_ref1: {
+      academic_transcript: {
         type: DataTypes.STRING,
       },
-      relationship_ref1: {
+      motivation_letter: {
         type: DataTypes.STRING,
       },
-      institution_ref1: {
+      language_test: {
         type: DataTypes.STRING,
       },
-      country_ref1: {
+      arabic_certificate: {
         type: DataTypes.STRING,
       },
-      phone_ref1: {
-        type: DataTypes.INTEGER,
-      },
-      email_ref1: {
+      curriculum_vitae: {
         type: DataTypes.STRING,
       },
-      title_ref2: {
-        type: DataTypes.ENUM("mr", "mrs", "ms", "miss", "other"),
-      },
-      f_name_ref2: {
+      research_proposal: {
         type: DataTypes.STRING,
       },
-      l_name_ref2: {
-        type: DataTypes.STRING,
-      },
-      position_ref2: {
-        type: DataTypes.STRING,
-      },
-      relationship_ref2: {
-        type: DataTypes.STRING,
-      },
-      institution_ref2: {
-        type: DataTypes.STRING,
-      },
-      country_ref2: {
-        type: DataTypes.STRING,
-      },
-      phone_ref2: {
-        type: DataTypes.INTEGER,
-      },
-      email_ref2: {
+      admission_receipt: {
         type: DataTypes.STRING,
       },
       createdAt: {
@@ -90,9 +63,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Referee",
-      tableName: "Referees",
+      modelName: "Document",
+      tableName: "Documents",
     }
   );
-  return Referee;
+  return Document;
 };

@@ -11,8 +11,9 @@ const getPersonals = async (req, res) => {
 
 const createPersonal = async (req, res) => {
   try {
+    // console.log(req.body);
     let newPersonal = await personalServices.createPersonal(req.body);
-    res.send(newPersonal);
+    res.send(newPersonal).status(newPersonal.status);
   } catch (err) {
     res.send(err);
   }
