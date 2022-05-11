@@ -1,9 +1,9 @@
 module.exports = {
   development: {
     username: "postgres",
-    password: "",
+    password: "password",
     database: "form_be",
-    host: "127.0.0.1",
+    host: "form.c5nwnoxb5tkt.ap-southeast-3.rds.amazonaws.com",
     dialect: "postgres",
     logging: false,
   },
