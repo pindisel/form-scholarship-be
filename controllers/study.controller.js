@@ -2,7 +2,7 @@ const studyService = require("../services/study.service");
 
 const getStudies = async (req, res) => {
   try {
-    let studies = await studyService.getstudies();
+    let studies = await studyService.getStudies();
     res.send(studies);
   } catch (err) {
     res.send(err);

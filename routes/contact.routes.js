@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", contactController.getContacts);
 
+router.get("/:id", contactController.getContact);
+
 router.post("/", contactController.createContact);
 
 module.exports = router;

@@ -9,6 +9,15 @@ const getContacts = async (req, res) => {
   }
 };
 
+const getContact = async (req, res) => {
+  try {
+    let contact = await contactServices.getContact(req.params.id);
+    res.send(contact);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createContact = async (req, res) => {
   try {
     let newContact = await contactServices.createContact(req.body);
@@ -20,5 +29,6 @@ const createContact = async (req, res) => {
 
 module.exports = {
   getContacts,
+  getContact,
   createContact,
 };

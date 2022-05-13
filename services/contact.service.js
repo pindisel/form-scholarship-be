@@ -15,6 +15,18 @@ const getContacts = async () => {
   }
 };
 
+const getContact = async (id) => {
+  try {
+    let contact = await contactModel.findByPk(id);
+    return {
+      success: true,
+      data: contact,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(contact)));
+  }
+};
+
 const createContact = async (contact) => {
   try {
     let newContact = await contactModel.create(contact).catch((err) => {
@@ -40,5 +52,6 @@ const createContact = async (contact) => {
 
 module.exports = {
   getContacts,
+  getContact,
   createContact,
 };
