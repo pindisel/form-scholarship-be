@@ -25,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      study_level: {
+      degree: {
         type: DataTypes.ENUM("master", "phd"),
       },
-      course_title: {
+      study_program: {
         type: DataTypes.STRING,
       },
       createdAt: {

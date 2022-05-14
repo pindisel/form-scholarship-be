@@ -52,6 +52,12 @@ module.exports = (sequelize, DataTypes) => {
       admission_receipt: {
         type: DataTypes.STRING,
       },
+      publication: {
+        type: DataTypes.STRING,
+      },
+      other: {
+        type: DataTypes.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,

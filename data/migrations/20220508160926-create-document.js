@@ -48,6 +48,12 @@ module.exports = {
       admission_receipt: {
         type: Sequelize.STRING,
       },
+      publication: {
+        type: Sequelize.STRING,
+      },
+      other: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

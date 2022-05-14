@@ -21,10 +21,10 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      study_level: {
+      degree: {
         type: Sequelize.ENUM("master", "phd"),
       },
-      course_title: {
+      study_program: {
         type: Sequelize.STRING,
       },
       createdAt: {
