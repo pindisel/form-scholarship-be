@@ -7,6 +7,12 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id_user",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       title: {
         type: Sequelize.ENUM("mr", "mrs", "ms", "miss", "other"),

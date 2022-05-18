@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
+        references: {
+          model: "Users",
+          key: "id_user",
+        },
       },
       title: {
         type: DataTypes.ENUM("mr", "mrs", "ms", "miss", "other"),

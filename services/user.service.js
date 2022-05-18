@@ -20,20 +20,33 @@ const getUsers = async () => {
 const createUser = async (user) => {
   // console.log(user);
   try {
-    const salt = await bcrypt.genSalt();
-    user.password = await bcrypt.hash(user.password, salt);
-
-    let newUser = await userModel.create(user).catch((err) => {
-      const error = new Error("Error creating user");
-      error.status = 400;
-      throw error;
+    let foundUser = await userModel.findOne({
+      where: {
+        email: user.email,
+      },
     });
-    console.log("createUser berhasil");
-    return {
-      success: true,
-      status: 201,
-      data: newUser,
-    };
+    if (foundUser) {
+      return {
+        success: false,
+        message: "User already exists",
+        status: 400,
+      };
+    } else {
+      const salt = await bcrypt.genSalt();
+      user.password = await bcrypt.hash(user.password, salt);
+
+      let newUser = await userModel.create(user).catch((err) => {
+        const error = new Error("Error creating user");
+        error.status = 400;
+        throw error;
+      });
+      console.log("createUser berhasil");
+      return {
+        success: true,
+        status: 201,
+        data: newUser,
+      };
+    }
   } catch (err) {
     console.log("createUser gagal", err);
     return {

@@ -19,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {
-          model: "Personals",
-          key: "id_student",
+          model: "Users",
+          key: "id_user",
         },
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
