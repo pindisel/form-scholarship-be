@@ -15,6 +15,18 @@ const getJobs = async () => {
   }
 };
 
+const getJob = async (id) => {
+  try {
+    let job = await jobModel.findByPk(id);
+    return {
+      success: true,
+      data: job,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(job)));
+  }
+};
+
 const createJob = async (job) => {
   // console.log(job);
   try {
@@ -41,5 +53,6 @@ const createJob = async (job) => {
 
 module.exports = {
   getJobs,
+  getJob,
   createJob,
 };

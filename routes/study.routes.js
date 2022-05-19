@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", studyController.getStudies);
 
+router.get("/:id", studyController.getStudy);
+
 router.post("/", studyController.createStudy);
 
 module.exports = router;

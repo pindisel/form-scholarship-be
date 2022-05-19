@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", jobController.getJobs);
 
+router.get("/:id", jobController.getJob);
+
 router.post("/", jobController.createJob);
 
 module.exports = router;

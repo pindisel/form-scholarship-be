@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Referee.init(
     {
-      id_referee: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

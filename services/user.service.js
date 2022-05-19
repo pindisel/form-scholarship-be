@@ -17,6 +17,18 @@ const getUsers = async () => {
   }
 };
 
+const getUser = async (id) => {
+  try {
+    let user = await userModel.findByPk(id);
+    return {
+      success: true,
+      data: user,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(user)));
+  }
+};
+
 const createUser = async (user) => {
   // console.log(user);
   try {

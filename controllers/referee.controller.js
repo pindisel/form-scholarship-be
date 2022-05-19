@@ -9,6 +9,15 @@ const getReferees = async (req, res) => {
   }
 };
 
+const getReferee = async (req, res) => {
+  try {
+    let referee = await refereeService.getReferee(req.params.id);
+    res.send(referee);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createReferee = async (req, res) => {
   try {
     let newReferee = await refereeService.createReferee(req.body);
@@ -21,4 +30,5 @@ const createReferee = async (req, res) => {
 module.exports = {
   getReferees,
   createReferee,
+  getReferee,
 };

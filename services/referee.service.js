@@ -1,5 +1,6 @@
 const models = require("../data/models");
-
+const nodemailer = require("nodemailer");
+const { port } = require("pg/lib/defaults");
 const refereeModel = models.Referee;
 
 const getReferees = async () => {
@@ -15,19 +16,57 @@ const getReferees = async () => {
   }
 };
 
+const getReferee = async (id) => {
+  try {
+    let referee = await refereeModel.findByPk(id);
+    return {
+      success: true,
+      data: referee,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(referee)));
+  }
+};
+
 const createReferee = async (referee) => {
   // console.log(referee);
   try {
-    let newReferee = await refereeModel.create(referee).catch((err) => {
-      const error = new Error("Error creating referee");
-      error.status = 400;
-      throw error;
+    // let newReferee = await refereeModel.create(referee).catch((err) => {
+    //   // console.log(err);
+    //   const error = new Error("Error creating referee");
+    //   error.status = 400;
+    //   throw error;
+    // });
+    // console.log("createReferee berhasil");
+    let transporter = nodemailer.createTransport({
+      host: "mail.apl-uiii.web.id",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "test@apl-uiii.web.id",
+        pass: "inipassword",
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
-    console.log("createReferee berhasil");
+    let mailOptions = {
+      from: "test@apl-uiii.web.id",
+      to: "anathapindika.kian@gmail.com",
+      subject: "New Referee",
+      text: "tes",
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent: " + info.response);
+      }
+    });
     return {
       success: true,
       status: 201,
-      data: newReferee,
+      // data: newReferee,
     };
   } catch (err) {
     console.log("createReferee gagal", err);
@@ -41,5 +80,6 @@ const createReferee = async (referee) => {
 
 module.exports = {
   getReferees,
+  getReferee,
   createReferee,
 };

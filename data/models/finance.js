@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Finance.init(
     {
-      id_finance: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

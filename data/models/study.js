@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Study.init(
     {
-      id_study: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

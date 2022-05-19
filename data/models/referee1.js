@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Contact extends Model {
+  class Referee1 extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,11 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Contact.init(
+  Referee1.init(
     {
       id_user: {
-        allowNull: false,
-
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {
@@ -25,34 +23,19 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      address1: {
+      intelectual_ability: {
         type: DataTypes.STRING,
       },
-      address2: {
+      oral_communication: {
         type: DataTypes.STRING,
       },
-      city: {
+      written_communication: {
         type: DataTypes.STRING,
       },
-      postal_code: {
-        type: DataTypes.INTEGER,
-      },
-      province: {
+      independent_work: {
         type: DataTypes.STRING,
       },
-      country: {
-        type: DataTypes.STRING,
-      },
-      home_phone: {
-        type: DataTypes.INTEGER,
-      },
-      mobile_phone: {
-        type: DataTypes.INTEGER,
-      },
-      primary_email: {
-        type: DataTypes.STRING,
-      },
-      alternate_email: {
+      organize_work: {
         type: DataTypes.STRING,
       },
       createdAt: {
@@ -66,9 +49,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Contact",
-      tableName: "Contacts",
+      modelName: "Referee1",
+      tableName: "Referee1",
     }
   );
-  return Contact;
+  return Referee1;
 };

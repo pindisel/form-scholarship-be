@@ -9,6 +9,15 @@ const getLanguages = async (req, res) => {
   }
 };
 
+const getLanguage = async (req, res) => {
+  try {
+    let language = await languageService.getLanguage(req.params.id);
+    res.send(language);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createLanguage = async (req, res) => {
   try {
     let newLanguage = await languageService.createLanguage(req.body);
@@ -21,4 +30,5 @@ const createLanguage = async (req, res) => {
 module.exports = {
   getLanguages,
   createLanguage,
+  getLanguage,
 };

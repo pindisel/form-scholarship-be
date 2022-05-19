@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Job.init(
     {
-      id_job: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

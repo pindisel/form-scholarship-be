@@ -9,6 +9,15 @@ const getPersonals = async (req, res) => {
   }
 };
 
+const getPersonal = async (req, res) => {
+  try {
+    let personal = await personalServices.getPersonal(req.params.id);
+    res.send(personal);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createPersonal = async (req, res) => {
   try {
     // console.log(req.body);
@@ -22,4 +31,5 @@ const createPersonal = async (req, res) => {
 module.exports = {
   getPersonals,
   createPersonal,
+  getPersonal,
 };

@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", documentController.getDocuments);
 
+router.get("/:id", documentController.getDocument);
+
 router.post("/", documentController.createDocument);
 
 module.exports = router;

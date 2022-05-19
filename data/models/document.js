@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Document.init(
     {
-      id_document: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

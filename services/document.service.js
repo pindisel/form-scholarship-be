@@ -15,6 +15,18 @@ const getDocuments = async () => {
   }
 };
 
+const getDocument = async (id) => {
+  try {
+    let document = await documentModel.findByPk(id);
+    return {
+      success: true,
+      data: document,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(document)));
+  }
+};
+
 const createDocument = async (document) => {
   try {
     let newDocument = await documentModel.create(document).catch((err) => {
@@ -40,5 +52,6 @@ const createDocument = async (document) => {
 
 module.exports = {
   getDocuments,
+  getDocument,
   createDocument,
 };

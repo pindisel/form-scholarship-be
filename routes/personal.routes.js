@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", personalController.getPersonals);
 
+router.get("/:id", personalController.getPersonal);
+
 router.post("/", personalController.createPersonal);
 
 module.exports = router;

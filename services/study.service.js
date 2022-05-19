@@ -15,6 +15,18 @@ const getStudies = async () => {
   }
 };
 
+const getStudy = async (id) => {
+  try {
+    let study = await studyModel.findByPk(id);
+    return {
+      success: true,
+      data: study,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(study)));
+  }
+};
+
 const createStudy = async (study) => {
   try {
     let newStudy = await studyModel.create(study).catch((err) => {
@@ -41,5 +53,6 @@ const createStudy = async (study) => {
 
 module.exports = {
   getStudies,
+  getStudy,
   createStudy,
 };

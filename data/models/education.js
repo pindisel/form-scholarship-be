@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Education.init(
     {
-      id_education_bg: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

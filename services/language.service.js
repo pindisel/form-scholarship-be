@@ -15,6 +15,18 @@ const getLanguages = async () => {
   }
 };
 
+const getLanguage = async (id) => {
+  try {
+    let language = await languageModel.findByPk(id);
+    return {
+      success: true,
+      data: language,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(language)));
+  }
+};
+
 const createLanguage = async (language) => {
   // console.log(language);
   try {
@@ -41,5 +53,6 @@ const createLanguage = async (language) => {
 
 module.exports = {
   getLanguages,
+  getLanguage,
   createLanguage,
 };

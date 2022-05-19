@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", financeController.getFinances);
 
+router.get("/:id", financeController.getFinance);
+
 router.post("/", financeController.createFinance);
 
 module.exports = router;

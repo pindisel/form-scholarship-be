@@ -9,6 +9,15 @@ const getEducations = async (req, res) => {
   }
 };
 
+const getEducation = async (req, res) => {
+  try {
+    let education = await educationSerice.getEducation(req.params.id);
+    res.send(education);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createEducation = async (req, res) => {
   try {
     let newEducation = await educationSerice.createEducation(req.body);
@@ -20,5 +29,6 @@ const createEducation = async (req, res) => {
 
 module.exports = {
   getEducations,
+  getEducation,
   createEducation,
 };

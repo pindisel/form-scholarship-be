@@ -15,6 +15,18 @@ const getFinances = async () => {
   }
 };
 
+const getFinance = async (id) => {
+  try {
+    let finance = await financeModel.findByPk(id);
+    return {
+      success: true,
+      data: finance,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(finance)));
+  }
+};
+
 const createFinance = async (finance) => {
   // console.log(finance);
   try {
@@ -41,5 +53,6 @@ const createFinance = async (finance) => {
 
 module.exports = {
   getFinances,
+  getFinance,
   createFinance,
 };

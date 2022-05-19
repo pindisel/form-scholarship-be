@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", educationController.getEducations);
 
+router.get("/:id", educationController.getEducation);
+
 router.post("/", educationController.createEducation);
 
 module.exports = router;

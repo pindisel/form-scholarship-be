@@ -9,6 +9,15 @@ const getStudies = async (req, res) => {
   }
 };
 
+const getStudy = async (req, res) => {
+  try {
+    let study = await studyService.getStudy(req.params.id);
+    res.send(study);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createStudy = async (req, res) => {
   try {
     let newStudy = await studyService.createStudy(req.body);
@@ -20,5 +29,6 @@ const createStudy = async (req, res) => {
 
 module.exports = {
   getStudies,
+  getStudy,
   createStudy,
 };

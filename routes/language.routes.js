@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", languageController.getLanguages);
 
+router.get("/:id", languageController.getLanguage);
+
 router.post("/", languageController.createLanguage);
 
 module.exports = router;

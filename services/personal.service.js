@@ -15,9 +15,22 @@ const getPersonals = async () => {
   }
 };
 
+const getPersonal = async (id) => {
+  try {
+    let personal = await personalModel.findByPk(id);
+    return {
+      success: true,
+      data: personal,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(personal)));
+  }
+};
+
 const createPersonal = async (personal) => {
   try {
     let newPersonal = await personalModel.create(personal).catch((err) => {
+      // console.log(err);
       const error = new Error("Error creating personal");
       error.status = 400;
       throw error;
@@ -41,5 +54,6 @@ const createPersonal = async (personal) => {
 
 module.exports = {
   getPersonals,
+  getPersonal,
   createPersonal,
 };

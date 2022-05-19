@@ -9,6 +9,15 @@ const getFinances = async (req, res) => {
   }
 };
 
+const getFinance = async (req, res) => {
+  try {
+    let finance = await financeService.getFinance(req.params.id);
+    res.send(finance);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createFinance = async (req, res) => {
   try {
     let newFinance = await financeService.createFinance(req.body);
@@ -20,5 +29,6 @@ const createFinance = async (req, res) => {
 
 module.exports = {
   getFinances,
+  getFinance,
   createFinance,
 };

@@ -34,15 +34,25 @@ const getDocuments = async (req, res) => {
   }
 };
 
+const getDocument = async (req, res) => {
+  try {
+    let document = await documentServices.getDocument(req.params.id);
+    res.send(document);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createDocument = async (req, res) => {
   try {
-    upload.array("files", 9)(req, res, async (err) => {
+    upload.array("files", 11)(req, res, async (err) => {
       if (err) {
-        console.log(err);
+        // console.log(err);
         res.send(err);
       } else {
-        // console.log(req.files);
+        // console.log(req);
         const documents = {
+          id_user: req.body.id_user,
           id_passport: req.files[0].location,
           edu_certificate: req.files[1].location,
           academic_transcript: req.files[2].location,
@@ -52,8 +62,10 @@ const createDocument = async (req, res) => {
           curriculum_vitae: req.files[6].location,
           research_proposal: req.files[7].location,
           admission_receipt: req.files[8].location,
+          publicataion: req.files[9].location,
+          other: req.files[10].location,
         };
-        console.log(documents);
+        // console.log(documents);
         const newDocument = await documentServices.createDocument(documents);
         // console.log(newDocument);
         res.send(newDocument).status(newDocument.status);
@@ -66,5 +78,6 @@ const createDocument = async (req, res) => {
 
 module.exports = {
   getDocuments,
+  getDocument,
   createDocument,
 };

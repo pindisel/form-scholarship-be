@@ -15,6 +15,18 @@ const getEducations = async () => {
   }
 };
 
+const getEducation = async (id) => {
+  try {
+    let education = await educationModel.findByPk(id);
+    return {
+      success: true,
+      data: education,
+    };
+  } catch (err) {
+    throw new Error(JSON.parse(JSON.stringify(education)));
+  }
+};
+
 const createEducation = async (education) => {
   // console.log(education);
   try {
@@ -42,5 +54,6 @@ const createEducation = async (education) => {
 
 module.exports = {
   getEducations,
+  getEducation,
   createEducation,
 };

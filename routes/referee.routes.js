@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", refereeController.getReferees);
 
+router.get("/:id", refereeController.getReferee);
+
 router.post("/", refereeController.createReferee);
 
 module.exports = router;

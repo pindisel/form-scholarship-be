@@ -1,10 +1,15 @@
 "use strict";
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Personals", {
+    /**
+     * Add altering commands here.
+     *
+     * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     */
+    await queryInterface.createTable("Referee1", {
       id_user: {
-        allowNull: false,
-
         primaryKey: true,
         type: Sequelize.INTEGER,
         references: {
@@ -14,38 +19,20 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      title: {
-        type: Sequelize.ENUM("mr", "mrs", "ms", "miss", "other"),
-      },
-      f_name: {
+      intelectual_ability: {
         type: Sequelize.STRING,
       },
-      l_name: {
+      oral_communication: {
         type: Sequelize.STRING,
       },
-      birth_place: {
+      written_communication: {
         type: Sequelize.STRING,
       },
-      birth_date: {
-        type: Sequelize.DATE,
-      },
-      gender: {
-        type: Sequelize.ENUM("male", "female"),
-      },
-      country: {
+      independent_work: {
         type: Sequelize.STRING,
       },
-      national_num: {
-        type: Sequelize.INTEGER,
-      },
-      passport_num: {
-        type: Sequelize.INTEGER,
-      },
-      issue_date: {
-        type: Sequelize.DATE,
-      },
-      expiry_date: {
-        type: Sequelize.DATE,
+      organize_work: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -57,7 +44,14 @@ module.exports = {
       },
     });
   },
+
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Personals");
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+    await queryInterface.dropTable("Referee1");
   },
 };

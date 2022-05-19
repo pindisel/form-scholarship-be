@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Language.init(
     {
-      id_language: {
+      id_user: {
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true,
         type: DataTypes.INTEGER,
         references: {

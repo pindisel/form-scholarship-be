@@ -9,6 +9,15 @@ const getJobs = async (req, res) => {
   }
 };
 
+const getJob = async (req, res) => {
+  try {
+    let job = await jobService.getJob(req.params.id);
+    res.send(job);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createJob = async (req, res) => {
   try {
     let newJob = await jobService.createJob(req.body);
@@ -21,4 +30,5 @@ const createJob = async (req, res) => {
 module.exports = {
   getJobs,
   createJob,
+  getJob,
 };
