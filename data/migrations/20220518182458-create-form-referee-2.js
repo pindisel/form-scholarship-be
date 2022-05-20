@@ -20,19 +20,32 @@ module.exports = {
         onUpdate: "CASCADE",
       },
       intelectual_ability: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       oral_communication: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       written_communication: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       independent_work: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       organize_work: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Poor", "Moderate", "Good", "Very Good"),
+      },
+      motivation: {
+        type: Sequelize.ENUM("Poor", "Moderate", "Good", "Very Good"),
+      },
+      assessment: {
+        type: Sequelize.STRING(300),
+      },
+      recommendation: {
+        type: Sequelize.ENUM(
+          "Strongly Recommend",
+          "Recommend",
+          "Not Recommend"
+        ),
       },
       createdAt: {
         allowNull: false,

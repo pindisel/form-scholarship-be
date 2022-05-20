@@ -24,19 +24,32 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: "CASCADE",
       },
       intelectual_ability: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       oral_communication: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       written_communication: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       independent_work: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("Poor", "Moderate", "Good", "Very Good"),
       },
       organize_work: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("Poor", "Moderate", "Good", "Very Good"),
+      },
+      motivation: {
+        type: DataTypes.ENUM("Poor", "Moderate", "Good", "Very Good"),
+      },
+      assessment: {
+        type: DataTypes.STRING(300),
+      },
+      recommendation: {
+        type: DataTypes.ENUM(
+          "Strongly Recommend",
+          "Recommend",
+          "Not Recommend"
+        ),
       },
       createdAt: {
         allowNull: false,

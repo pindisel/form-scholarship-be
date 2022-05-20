@@ -21,7 +21,7 @@ const getFinance = async (req, res) => {
 const createFinance = async (req, res) => {
   try {
     let newFinance = await financeService.createFinance(req.body);
-    res.send(newFinance).status(newFinance.status);
+    res.status(newFinance.status).send(newFinance);
   } catch (err) {
     res.send(err);
   }

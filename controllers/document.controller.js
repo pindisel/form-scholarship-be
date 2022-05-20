@@ -68,7 +68,7 @@ const createDocument = async (req, res) => {
         // console.log(documents);
         const newDocument = await documentServices.createDocument(documents);
         // console.log(newDocument);
-        res.send(newDocument).status(newDocument.status);
+        res.status(newDocument.status).send(newDocument);
       }
     });
   } catch (err) {

@@ -22,7 +22,7 @@ const createPersonal = async (req, res) => {
   try {
     // console.log(req.body);
     let newPersonal = await personalServices.createPersonal(req.body);
-    res.send(newPersonal).status(newPersonal.status);
+    res.status(newPersonal.status).send(newPersonal);
   } catch (err) {
     res.send(err);
   }

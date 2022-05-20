@@ -21,7 +21,7 @@ const getEducation = async (req, res) => {
 const createEducation = async (req, res) => {
   try {
     let newEducation = await educationSerice.createEducation(req.body);
-    res.send(newEducation).status(newEducation.status);
+    res.status(newEducation.status).send(newEducation);
   } catch (err) {
     res.send(err);
   }

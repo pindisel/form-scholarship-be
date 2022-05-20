@@ -21,7 +21,7 @@ const getReferee = async (req, res) => {
 const createReferee = async (req, res) => {
   try {
     let newReferee = await refereeService.createReferee(req.body);
-    res.send(newReferee).status(newReferee.status);
+    res.status(newReferee.status).send(newReferee);
   } catch (err) {
     res.send(err);
   }

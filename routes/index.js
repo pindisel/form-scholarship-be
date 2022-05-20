@@ -10,6 +10,7 @@ const jobRoute = require("./job.routes");
 const refereeRoute = require("./referee.routes");
 const documentRoute = require("./document.routes");
 const userRoute = require("./user.routes");
+const refereeformRoute = require("./refereeform.routes");
 
 const router = express.Router();
 
@@ -53,6 +54,10 @@ const defaultRoutes = [
   {
     path: "/user",
     route: userRoute,
+  },
+  {
+    path: "/refereeform",
+    route: refereeformRoute,
   },
 ];
 

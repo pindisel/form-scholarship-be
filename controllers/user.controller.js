@@ -12,7 +12,7 @@ const getUsers = async (req, res) => {
 const createUser = async (req, res) => {
   try {
     let newUser = await userService.createUser(req.body);
-    res.send(newUser).status(newUser.status);
+    res.status(newUser.status).send(newUser);
   } catch (err) {
     res.send(err);
   }
@@ -21,7 +21,7 @@ const createUser = async (req, res) => {
 const signIn = async (req, res) => {
   try {
     let user = await userService.signIn(req.body);
-    res.send(user).status(user.status);
+    res.status(user.status).send(user);
   } catch (err) {
     res.send(err);
   }
