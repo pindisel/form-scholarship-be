@@ -78,9 +78,9 @@ const createReferee = async (referee) => {
     } who has requested that you provide a reference (letter of reccomendation) in support of their application to UIII.</p>
       <br />
       <p>In order for us to consider this application promptly we would ask that you please click the link below to fill in the reference form.</p>
-      <p>Click here <a href="${process.env.EMAIL_URL}1/${
+      <p>Click here <a href="${process.env.EMAIL_URL}?id_user=${
       referee.id_user
-    }">here</a>.</p>
+    }&id_ref=1">here</a>.</p>
       <p>We look forward to receiving your reference in one week after receiving this notification in order for us to consider ${
         personal.dataValues.title.charAt(0).toUpperCase() +
         personal.dataValues.title.slice(1)
@@ -119,9 +119,9 @@ const createReferee = async (referee) => {
     } who has requested that you provide a reference (letter of reccomendation) in support of their application to UIII.</p>
     <br />
     <p>In order for us to consider this application promptly we would ask that you please click the link below to fill in the reference form.</p>
-    <p>Click here <a href="${process.env.EMAIL_URL}2/${
+    <p>Click here <a href="${process.env.EMAIL_URL}?id_user=${
       referee.id_user
-    }">here</a>.</p>
+    }&id_ref=2">here</a>.</p>
     <p>We look forward to receiving your reference in one week after receiving this notification in order for us to consider ${
       personal.dataValues.title.charAt(0).toUpperCase() +
       personal.dataValues.title.slice(1)
