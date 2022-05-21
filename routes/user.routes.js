@@ -6,6 +6,8 @@ const express = require("express"),
 
 router.get("/", userController.getUsers);
 
+router.get("/:id", userController.getUser);
+
 router.post("/signup", userController.createUser);
 
 router.post("/signin", userController.signIn);

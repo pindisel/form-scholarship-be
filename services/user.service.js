@@ -121,6 +121,7 @@ const signIn = async (user) => {
 
 module.exports = {
   getUsers,
+  getUser,
   createUser,
   signIn,
 };

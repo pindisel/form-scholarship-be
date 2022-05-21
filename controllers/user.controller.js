@@ -9,6 +9,15 @@ const getUsers = async (req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  try {
+    let user = await userService.getUser(req.params.id);
+    res.send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const createUser = async (req, res) => {
   try {
     let newUser = await userService.createUser(req.body);
@@ -29,6 +38,7 @@ const signIn = async (req, res) => {
 
 module.exports = {
   getUsers,
+  getUser,
   createUser,
   signIn,
 };
