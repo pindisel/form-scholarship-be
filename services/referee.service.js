@@ -173,7 +173,7 @@ const createReferee = async (referee) => {
     return {
       success: true,
       status: 201,
-      // data: newReferee,
+      data: newReferee,
     };
   } catch (err) {
     console.log("createReferee gagal", err);
