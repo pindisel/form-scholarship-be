@@ -36,9 +36,20 @@ const signIn = async (req, res) => {
   }
 };
 
+const verifyUser = async (req, res) => {
+  try {
+    // console.log(req.params.token);
+    let user = await userService.verifyUser(req.params.token);
+    res.status(user.status).send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 module.exports = {
   getUsers,
   getUser,
   createUser,
   signIn,
+  verifyUser,
 };

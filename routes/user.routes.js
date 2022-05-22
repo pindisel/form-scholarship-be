@@ -12,4 +12,6 @@ router.post("/signup", userController.createUser);
 
 router.post("/signin", userController.signIn);
 
+router.put("/verify/:token", userController.verifyUser);
+
 module.exports = router;
