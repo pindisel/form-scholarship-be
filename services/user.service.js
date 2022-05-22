@@ -170,8 +170,8 @@ const createUser = async (user) => {
             will be automatically recorded in our system.
           </li>
         </ol>
-        <p>Click the link below to verify your account.</p>
-        <a href="${process.env.EMAIL_VERIF_URL}${token}">
+        <p>Click the link below to verify your account within 24 hours.</p>
+        <a href="${process.env.EMAIL_VERIF_URL}?token=${token}">
         ${process.env.EMAIL_VERIF_URL}${token}
         </a>
         <p>Thank you.</p>
@@ -245,7 +245,12 @@ const signIn = async (user) => {
             status: 200,
             data: {
               token,
-              user: foundUser,
+              user: {
+                id_user: foundUser.id_user,
+                email: foundUser.email,
+                name: foundUser.name,
+                role: foundUser.role,
+              },
             },
           };
         } else {
