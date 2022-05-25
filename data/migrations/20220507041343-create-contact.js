@@ -31,7 +31,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       postal_code: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       province: {
         type: Sequelize.STRING,
@@ -40,10 +40,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       home_phone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       mobile_phone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       primary_email: {
         type: Sequelize.STRING,

@@ -45,10 +45,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       national_num: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       passport_num: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       issue_date: {
         type: DataTypes.DATE,

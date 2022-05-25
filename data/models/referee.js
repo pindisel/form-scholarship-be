@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       phone_ref1: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       email_ref1: {
         type: DataTypes.STRING,
@@ -74,7 +74,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       phone_ref2: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       email_ref2: {
         type: DataTypes.STRING,

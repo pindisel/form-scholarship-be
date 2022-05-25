@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       postal_code: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       province: {
         type: DataTypes.STRING,
@@ -44,10 +44,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       home_phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       mobile_phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       primary_email: {
         type: DataTypes.STRING,

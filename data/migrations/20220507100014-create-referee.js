@@ -43,7 +43,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       phone_ref1: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       email_ref1: {
         type: Sequelize.STRING,
@@ -70,7 +70,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       phone_ref2: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       email_ref2: {
         type: Sequelize.STRING,

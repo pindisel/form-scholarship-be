@@ -36,10 +36,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       national_num: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       passport_num: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       issue_date: {
         type: Sequelize.DATE,
