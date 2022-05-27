@@ -14,4 +14,6 @@ router.post("/signin", userController.signIn);
 
 router.put("/verify/:token", userController.verifyUser);
 
+router.put("/resend/:token", userController.resendEmail);
+
 module.exports = router;

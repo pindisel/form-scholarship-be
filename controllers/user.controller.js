@@ -47,10 +47,20 @@ const verifyUser = async (req, res) => {
   }
 };
 
+const resendEmail = async (req, res) => {
+  try {
+    let user = await userService.resendEmail(req.params.token);
+    res.status(user.status).send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 module.exports = {
   getUsers,
   getUser,
   createUser,
   signIn,
   verifyUser,
+  resendEmail,
 };
